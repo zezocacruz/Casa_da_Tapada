@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa da Tapada | Experiência Rural</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body data-color="#ffffff">
+
+    <div class="top-bar">
+        <a href="https://www.instagram.com/casadatapadaturismo/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" class="insta-icon" alt="Instagram">
+            Instagram @casadatapadaturismo
+        </a>
+    </div>
+
+    <nav class="main-nav">
+        <div class="logo-container">
+            <a href="index.html"><img src="imagens/logo.jpeg" alt="Logo" class="site-logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="reservar.html">Reservar</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero section" data-color="#1a1a1a">
+        <video autoplay muted loop playsinline id="hero-video">
+            <source src="imagens/video-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Casa da Tapada</h1>
+            <p>A essência da Beira Baixa na Atalaia do Campo.</p>
+            <a href="#intro" class="btn-scroll">Viver a Experiência</a>
+        </div>
+    </header>
+
+    <section id="intro" class="section-split section" data-color="#fdfbf7">
+        <div class="split-text">
+            <h2>Um refúgio com alma</h2>
+            <p>Na Casa da Tapada, a beleza está na simplicidade. Acorde com o som do campo e termine o dia sob um céu estrelado único.</p>
+        </div>
+        <div class="split-image">
+            <img src="imagens/foto1.jpeg" alt="Refúgio">
+        </div>
+    </section>
+
+    <section class="section-activities section" data-color="#ffffff">
+        <div class="container-atividades">
+            <h2 style="font-family:'Playfair Display'; color:#b58d3d; font-size: 2.5rem; margin-bottom: 40px; text-align: center;">Viver a Atalaia do Campo</h2>
+            <div class="grid-atividades">
+                <div class="atividade"><img src="imagens/foto2.jpeg"><h3>Trilhos Naturais</h3></div>
+                <div class="atividade"><img src="imagens/foto3.jpeg"><h3>Gastronomia Beirã</h3></div>
+                <div class="atividade"><img src="imagens/foto4.jpeg"><h3>Vilas Históricas</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-testimonials section" data-color="#f4f1ea">
+        <div class="testimonial-container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="font-family:'Playfair Display'; color:#b58d3d; font-size: 2.5rem;">O que dizem os nossos hóspedes</h2>
+            <div class="testimonial-card">
+                <p>"Um lugar mágico onde o silêncio é a melhor música."</p>
+                <span style="font-weight:600; color:#b58d3d;">- Maria João, Lisboa</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-weather section" data-color="#ffffff">
+        <div class="weather-container">
+            <h3 style="font-family:'Playfair Display'; color:#b58d3d; font-size: 2rem; text-align: center;">Prepare a sua visita</h3>
+            <div class="widget-box">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/40d05n7d43/atalaia-do-campo/" data-label_1="ATALAIA DO CAMPO" data-label_2="WEATHER" data-theme="original" data-basecolor="#d4a373" >ATALAIA DO CAMPO WEATHER</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-full-grid section" data-color="#e8e2d6">
+        <div class="full-grid">
+            <div class="card-full card1"><div class="overlay"><h3>Natureza</h3></div></div>
+            <div class="card-full card2"><div class="overlay"><h3>Tradição</h3></div></div>
+            <div class="card-full card3"><div class="overlay"><h3>Comunidade</h3></div></div>
+        </div>
+    </section>
+
+    <footer class="footer-dark section" data-color="#1a1a1a">
+        <h2 style="font-family:'Playfair Display'; font-size: 2.5rem;">Esperamos por si.</h2>
+        <a href="reservar.html" class="btn-footer">Reservar Estadia</a>
+    </footer>
+
+    <a href="https://wa.me/351912345678" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.body.style.backgroundColor = entry.target.getAttribute('data-color');
+                }
+            });
+        }, { threshold: 0.5 });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>

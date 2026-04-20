@@ -1,0 +1,208 @@
+/* 1. RESET E DEFINIÇÕES GERAIS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Poppins', sans-serif; 
+    transition: background-color 0.8s ease; 
+    overflow-x: hidden; 
+    background-color: #ffffff; 
+}
+
+/* 2. BARRA SUPERIOR (Instagram + Ícone) */
+.top-bar {
+    background-color: #d4a373;
+    padding: 12px 5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 3000;
+}
+
+.top-bar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.insta-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); /* Ícone branco */
+}
+
+/* 3. MENU COM LOGO E CÁPSULAS */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 5% 25px 5%;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-container {
+    position: absolute;
+    left: 5%;
+    top: 5px; /* Evita que a barra castanha tape o logo */
+}
+
+.site-logo { 
+    height: 110px;
+    width: auto;
+    border-radius: 50%;
+    background: #fff;
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.site-logo:hover { transform: scale(1.05); }
+
+.nav-links { display: flex; list-style: none; gap: 15px; }
+
+.nav-links a { 
+    text-decoration: none; 
+    color: #333; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    font-size: 0.85rem; 
+    position: relative; 
+    z-index: 2; 
+    padding: 12px 20px; 
+    transition: 0.3s;
+}
+
+/* Efeito Cápsula ao passar o rato */
+.nav-links a::before {
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 0; 
+    height: 42px;
+    background-color: #d4a373; 
+    border-radius: 25px; 
+    transform: translate(-50%, -50%);
+    z-index: -1; 
+    transition: 0.3s; 
+    opacity: 0;
+}
+
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::before { width: 100%; opacity: 1; }
+
+/* 4. PÁGINA INICIAL (Hero, Seções, etc) */
+.hero { 
+    height: 100vh; 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+    color: #fff; 
+    text-align: center; 
+}
+
+#hero-video { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.hero h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(2.5rem, 8vw, 4rem); 
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+}
+
+.btn-scroll { 
+    display: inline-block; 
+    margin-top: 30px; 
+    padding: 15px 40px; 
+    border: 2px solid #fff; 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+}
+
+/* 5. SECÇÕES DINÂMICAS */
+.section-split { display: flex; flex-wrap: wrap; background: transparent; }
+.split-text { flex: 1; padding: 8%; display: flex; flex-direction: column; justify-content: center; }
+.split-text h2 { font-family: 'Playfair Display', serif; color: #b58d3d; font-size: 2.5rem; margin-bottom: 20px; }
+.split-image { flex: 1; padding: 20px; }
+.split-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+
+.section-activities { padding: 80px 5%; text-align: center; }
+.grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+.atividade { border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding-bottom: 20px; }
+.atividade img { width: 100%; height: 250px; object-fit: cover; }
+.atividade h3 { margin-top: 15px; color: #b58d3d; font-family: 'Playfair Display'; }
+
+.section-testimonials { padding: 80px 10%; text-align: center; }
+.testimonial-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-top: 20px; }
+
+.section-weather { padding: 60px 10%; text-align: center; }
+.widget-box { max-width: 800px; margin: 30px auto; border-radius: 15px; overflow: hidden; }
+
+/* 6. GRID FULL WIDTH (Imagens de Fundo) */
+.full-grid { display: flex; width: 100%; height: 70vh; }
+.card-full { flex: 1; position: relative; background-size: cover; background-position: center; transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+.card-full:hover { flex: 1.8; }
+
+.card1 { background-image: url('imagens/foto1.jpeg'); } /* Alterei para fotos que já tens */
+.card2 { background-image: url('imagens/foto2.jpeg'); }
+.card3 { background-image: url('imagens/foto3.jpeg'); }
+
+.overlay { 
+    position: absolute; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.3); display: flex; align-items: center; 
+    justify-content: center; color: #fff; font-family: 'Playfair Display'; font-size: 1.8rem; 
+}
+
+/* 7. PÁGINAS INTERNAS E RESERVAS */
+.conteudo-interno { padding: 80px 10%; text-align: center; max-width: 1000px; margin: 0 auto; }
+.conteudo-interno h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #b58d3d; margin-bottom: 20px; }
+.img-interna { width: 100%; border-radius: 20px; margin-top: 30px; }
+
+.contactos-lista {
+    margin: 40px auto; max-width: 500px; text-align: left; 
+    background: #fdfbf7; padding: 30px; border-radius: 20px; border: 1px solid #f0e6d2;
+}
+.contacto-item { margin-bottom: 20px; border-bottom: 1px solid #f0e6d2; padding-bottom: 10px; }
+.contacto-item strong { color: #b58d3d; display: block; font-size: 0.8rem; text-transform: uppercase; }
+.contacto-item a { text-decoration: none; color: #333; font-weight: 500; font-size: 1.1rem; }
+
+/* 8. GRID GALERIA */
+.grid-galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 0; }
+.grid-galeria img { width: 100%; height: 400px; object-fit: cover; border-radius: 15px; }
+
+/* 9. RODAPÉ */
+.footer-dark { padding: 100px 5%; text-align: center; color: #fff; background: transparent; }
+.btn-footer { 
+    display: inline-block; background: #b58d3d; color: #fff; padding: 18px 50px; 
+    border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 20px; 
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .main-nav { flex-direction: column; height: auto; padding-top: 80px; }
+    .logo-container { top: -60px; left: 50%; transform: translateX(-50%); }
+    .nav-links { gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 0.75rem; padding: 8px 12px; }
+    .full-grid { flex-direction: column; height: auto; }
+    .card-full { height: 350px; }
+}
+
+.whatsapp-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; z-index: 3000; }
